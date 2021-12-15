@@ -5,15 +5,23 @@ async function fetchData(url, callback) {
 }
 
 const TitleBar = {
-  template: `<h1>Worldwide holidays</h1>`,
+  template: `
+  <header class="p-5 text-center bg-red-900 text-white">
+    <h1 class="p-5 text-3xl text-center">Worldwide holidays</h1>
+    <h2>By Izac</h2>
+  </header>`,
 };
 
 const Holiday = {
   template: `
-  <input type="date" @change="newDate" id="newDate"/>
-    <li v-for="holiday in holidays">
-        {{holiday}}
-    </li>`,
+    <main class="bg-gray-100 flex flex-col items-center">
+        <input type="date" @change="newDate" id="newDate" class="m-5 p-2"/>
+        <ul class="bg-gray-100 flex flex-col items-center">
+            <li v-for="holiday in holidays" class="m-2 p-2">
+                {{holiday}} 
+            </li>
+        </ul>
+    </main>`,
 
   data() {
     return {
